@@ -1,0 +1,19 @@
+// teste da aba select
+select * from alunos2
+
+// teste1 da aba Execute
+insert into alunos2 values ('_99990', 'teste0', 08/23/2017);
+insert into alunos2 values ('_99991', 'teste1', 08/23/2017);
+
+// teste2 da aba Execute
+insert into alunos2 values ('_99992', 'teste2', 08/23/2017)
+;
+insert into alunos2 values ('_99993', 'teste3', 08/23/2017)
+;
+
+// teste3 da aba Execute
+update alunos2 set ALU_NOME='teste2x' where ALU_MATRICULA='_99992'
+;
+
+// teste4 da aba Execute
+delete from alunos2 where substring(alu_matricula,1,1) = '_';

@@ -1,0 +1,20 @@
+===========
+Realizadas:
+===========
+
+v2.2:
+-----
+- Foram unidos os fontes da versão feita p/ a Troller c/ a versão utilizada aqui, adicionando o recurso de rodar script
+- Foi acrescentada a opção "Executa comandos a cada ;"
+- Foi melhorada a mostra da linha ao executar e ao dar erro
+- Foi alterado o programa p/ aceitar ; tanto após a última letra do comando, como na próxima linha após o comando
+- ao marcar checkbox, nao parar qdo. der erro
+- Colocar múltiplos memo guardando os comandos sql em formato pilha, como no DbExplorer;Pilha Execute:OK. pilha Select:OK
+
+v2.3:
+-----
+- Guarda no vetor(pilha) os comandos bem sucedidos
+
+v2.4:
+-----
+- Refatoração

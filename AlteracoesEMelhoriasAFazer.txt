@@ -1,0 +1,7 @@
+===========
+A Realizar:
+===========
+
+X- Criar arq. texto a partir de SELECT. Permitir salvar em banco ou em arq. texto.
+- Numerar linhas p/ ao dar mensagem de erro na linha tal, podermos ver facilmente a linha do erro.
+- Permitir busca -> CTRL+F dentro do memo
