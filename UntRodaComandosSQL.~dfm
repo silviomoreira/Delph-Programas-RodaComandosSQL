@@ -3,7 +3,7 @@ object FrmRodaComandosSQL: TFrmRodaComandosSQL
   Top = 107
   Width = 725
   Height = 502
-  Caption = 'Roda Comandos SQL - v2.3'
+  Caption = 'Roda Comandos SQL - v2.4'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

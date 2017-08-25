@@ -349,12 +349,12 @@ begin
       bbExecutaClick(nil);
 end;
 
-// ===================================================================================================
-// * Lógica - Atualmente ao clicar nas setas:
-// * 1)Atribui sql ao elemento corrente do vetor                                   | VETOR[E] := MEMO.SQL
-// * 2)Incrementa/decrementa valor da var. que indica o elemento corrente do vetor | E++ ou E--
-// * 3)Atribui ao memo o conteúdo(sql) do elemento atual do vetor                  | MEMO.SQL := VETOR[E]
-// ===================================================================================================
+// ====================================================================================================== //
+// * Lógica - Atualmente ao clicar nas setas:                                                             //
+// * 1)Atribui sql ao elemento corrente do vetor                                   | VETOR[E] := MEMO.SQL //
+// * 2)Incrementa/decrementa valor da var. que indica o elemento corrente do vetor | E++ ou E--           //
+// * 3)Atribui ao memo o conteúdo(sql) do elemento atual do vetor                  | MEMO.SQL := VETOR[E] //
+// ====================================================================================================== //
 procedure TFrmRodaComandosSQL.SpinButton1DownClick(Sender: TObject);
 begin
    if pcSQL.ActivePage = tsComandosExecute then
@@ -441,8 +441,27 @@ begin
 end;
 
 {
-// ao clicar no <F5>, procura elemento anterior do vetor
-// enquanto n não atingir o tamanho do vetor, preenche até n, o elemento com o elemento posterior
+// --------------------------------------------------------------------------------------------------- //
+// * Lógica da pilha de comandos bem sucedidos                                                         //
+// --------------------------------------------------------------------------------------------------- //
+1)Inicializa no ONCREATE()
+uinCiclo := 0
+2)Move a pilha
+for i := 9-uinCiclo to 8 do
+    VETOR[uinCiclo] := VETOR[uinCiclo+1]
+VETOR[9] := VETOR[0]
+3)Atribui sql ao elemento corrente do vetor
+VETOR[E] := MEMO.SQL
+4)Incrementa/decrementa valor da var. que indica o elemento corrente do vetor
+if uinCiclo < 9 then
+  Inc(uinCiclo);
+else
+  uinCiclo := 0;
+
+// =================================================================================================== //
+// ao clicar no <F5>, procura elemento anterior do vetor                                               //
+// enquanto n não atingir o tamanho do vetor, preenche até n, o elemento com o elemento posterior      //
+// =================================================================================================== //
 * primeiro ciclo:
 9 = 0
 ---------
@@ -460,60 +479,7 @@ end;
 9 = 0
 ---------
 0 - atual
-
-
-* Lógica
-1)Inicializa no ONCREATE()
-uinCiclo := 0
-2)Move a pilha
-for i := 9-uinCiclo to 8 do
-    VETOR[uinCiclo] := VETOR[uinCiclo+1]
-VETOR[9] := VETOR[0]
-3)Atribui sql ao elemento corrente do vetor
-VETOR[E] := MEMO.SQL
-4)Incrementa/decrementa valor da var. que indica o elemento corrente do vetor
-if uinCiclo < 9 then
-  Inc(uinCiclo);
-else
-  uinCiclo := 0;
-
-* PAtribuiVetorExec:
-uarMemo[uinLinhaArrayExec] := '';
-for i:=0 to meSQL.Lines.Count do
-   if i = 0 then
-      uarMemo[uinLinhaArrayExec] := meSQL.Lines[i]
-   else
-      uarMemo[uinLinhaArrayExec] := uarMemo[uinLinhaArrayExec] + #13#10 + meSQL.Lines[i];
-
-// Atualmente ao clicar nas setas:
-1)Atribui sql ao elemento corrente do vetor                                   | VETOR[E] := MEMO.SQL
-2)Incrementa/decrementa valor da var. que indica o elemento corrente do vetor | E++ ou E--
-3)Atribui ao memo o conteúdo(sql) do elemento atual do vetor                  | MEMO.SQL := VETOR[E]
-
-   // código ref. ao <F5> - uinCiclo inicia c/ 0 e vai até 9
-   if pcSQL.ActivePage = tsComandosExecute then
-   begin
-      for i := 9-uinCicloExec to 8 do
-         uarMemo[i] := uarMemo[i+1];
-      uarMemo[9] := uarMemo[0];
-      PAtribuiVetorExec;
-      if uinCicloExec < 9 then
-         Inc(uinCicloExec)
-      else
-         uinCicloExec := 0;
-   end
-   else
-   if pcSQL.ActivePage = tsComandosSelect then
-   begin
-      for i := 9-uinCicloSel to 8 do
-         uarMemoSel[i] := uarMemoSel[i+1];
-      uarMemoSel[9] := uarMemoSel[0];
-      PAtribuiVetorSel;
-      if uinCicloSel < 9 then
-         Inc(uinCicloSel)
-      else
-         uinCicloSel := 0;
-   end;
+-----------------------------------------------------------------------------------------------------
 }
 
 end.
